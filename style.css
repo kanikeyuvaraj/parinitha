@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    --primary-gold: #d4af37;
+    --primary-dark: #2c3e50;
+    --accent-teal: #2a9d8f;
+    --text-color: #333333;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Background Animation */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Glass Container */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    max-width: 600px;
+    width: 100%;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: none;
+    /* Removed global slideUp to apply staggered animations to children */
+}
+
+/* Staggered Entrance Animations */
+header {
+    animation: slideUp 0.8s ease-out 0.1s both;
+}
+
+.title-section {
+    animation: slideUp 0.8s ease-out 0.3s both;
+}
+
+.main-image-wrapper {
+    animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+}
+
+.parents-info {
+    animation: slideUp 0.8s ease-out 0.7s both;
+}
+
+.details-grid {
+    animation: slideUp 0.8s ease-out 0.9s both;
+}
+
+.footer-decor {
+    animation: slideUp 0.8s ease-out 1.1s both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatGentle {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.script-font {
+    font-family: 'Great Vibes', cursive;
+    color: var(--primary-gold);
+    line-height: 1.2;
+}
+
+
+.ganesh-icon-header {
+    width: 60px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.om-shree {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.om-shree::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-gold);
+    margin: 5px auto 0;
+}
+
+.ceremony-title {
+    font-size: 3.5rem;
+    background: -webkit-linear-gradient(45deg, #d4af37, #2c3e50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1rem 0;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+}
+
+.baby-name {
+    font-size: 4.5rem;
+    color: var(--accent-teal);
+    /* Fallback */
+    background: linear-gradient(to right, #2a9d8f, #264653);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1.5rem 0;
+    animation: pulseName 3s infinite ease-in-out;
+}
+
+@keyframes pulseName {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.host-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* Images */
+.main-image-wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 2rem auto;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease;
+}
+
+.main-image:hover {
+    transform: rotate(5deg) scale(1.02);
+}
+
+.decorative-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primary-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: floatGentle 3s ease-in-out infinite;
+}
+
+/* Details Grid */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.detail-icon {
+    font-size: 1.5rem;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.detail-text h3 {
+    font-size: 1rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.2rem;
+}
+
+.detail-text p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-teal);
+}
+
+/* Footer Message */
+.footer-message {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    /* Subtle gold border */
+    animation: slideUp 0.8s ease-out 1.1s both;
+}
+
+.compliments-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.compliments-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.final-ornament {
+    font-size: 2rem;
+    color: var(--primary-gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        align-items: flex-start;
+        /* Allow scrolling on small screens */
+    }
+
+    .glass-card {
+        padding: 2rem 1rem;
+        border-radius: 15px;
+    }
+
+    .ceremony-title {
+        font-size: 2.8rem;
+    }
+
+    .baby-name {
+        font-size: 3.5rem;
+    }
+
+    .details-grid {
+        text-align: center;
+        justify-items: center;
+    }
+
+    .detail-item {
+        flex-direction: column;
+    }
+}
